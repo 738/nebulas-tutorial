@@ -2,7 +2,7 @@
 
 ## 서문
 
-[네뷸러스(Nebulas)](https://nebulas.io/kr)는 2018년 1분기에 메인넷 Eagle Nebula 1.0을 출시했습니다. 네뷸러스는 블록체인 개발자들이 메인넷 위에서 보다 뛰어난 DApp의 개발을 장려하고 더불어서 네뷸러스 개발 친화적 블록체인 생태계를 구축하기 위해 [Nebulas Incentive Incentive Program 시즌 1](https://nebulas.io/incentive.html)을 2018년 5월 7일부터 7월 2일까지 개최했습니다.
+[네뷸러스(Nebulas)](https://nebulas.io/kr)는 2018년 1분기에 메인넷 Eagle Nebula 1.0을 출시했습니다. 네뷸러스는 블록체인 개발자들이 메인넷 위에서 보다 뛰어난 DApp의 개발을 장려하고 더불어서 네뷸러스 개발 친화적 블록체인 생태계를 구축하기 위해 [Nebulas Incentive Incentive Program 시즌 1](https://nebulas.io/incentive.html)을 2018년 5월 7일부터 7월 2일까지 개최했습니다. (8주간 개최되며 1주 단위로 시상합니다.)
 
 총 상금은 460,000 NAS(2018년 5월 14일 NAS 가격기준, 약 41억4000만원)로 개발자의 눈길을 끌만큼 상금은 매우 컸습니다. 게다가 등수 안에 들지 않고 DApp을 만들기만 해도 100NAS를 New DApp Prize로 지급한다고 해서 프로그램은 꼭 참여해야겠다고 생각했습니다. 그래서 저는 네뷸러스 튜토리얼과 위키를 보면서 DApp 개발을 위한 공부를 시작했습니다.
 
@@ -22,8 +22,9 @@
 
 ### 개발 프로세스
 
-1. `go-nebulas` 설치하여 네뷸러스 로컬 노드 실행 ([이전 글 네뷸러스 DApp 개발 튜토리얼]() 참조)
+1. [`go-nebulas`](https://github.com/nebulasio/go-nebulas) 설치하여 네뷸러스 로컬 노드 실행 ([이전 글 네뷸러스 DApp 개발 튜토리얼]() 참조)
 2. 스마트 컨트랙트 개발
+    * while bug:
     1. 로컬 노드에 배포
     2. 테스트
     3. 디버깅
@@ -72,3 +73,42 @@ delete(id) {
 
 완성된 DApp의 링크입니다: [Votestagram](https://vote.nasd.app/)
 
+> 웹 프론트엔드는 React.js, material-ui를 사용하여 개발하였습니다.
+
+![votestagram](https://github.com/JonJee/nebulas-voting/blob/master/docs/img/capture_votinglistview.png?raw=true)
+![votestagram2](https://github.com/JonJee/nebulas-voting/raw/master/docs/img/capture_voteview.png?raw=true)
+![votestagram3](https://github.com/JonJee/nebulas-voting/raw/master/docs/img/capture_votingresult.png?raw=true)
+
+## 두 번째 DApp: Fortune Cookie
+
+첫 번째 DApp인 [Votestgram](https://vote.nasd.app)이 New Dapp Prize를 받고 난 후 정말 간단하게 만들어도 참가상 보상을 지급받을 수 있을지 궁금해서 최대한 간단하고 빠르게 만들기로 했습니다. 고민고민하다가 두 번째 DApp으로는 중국인들이 좋아하는 포츈쿠키를 기획했습니다. 제목그대로 포츈쿠키의 운세를 보여주는 기능을 가진 DApp이었습니다. 그것만 있으면 너무 단순해서 자신의 마지막 포츈쿠키 운세 조회 기능과 트위터 공유 기능을 넣었습니다. 소스코드는 [여기](https://github.com/JonJee/FortuneCookie)에서 볼 수 있습니다.
+
+### 스마트 컨트랙트 개발
+
+```js
+// CookieManager 클래스 안의 함수입니다.
+
+// 운세들을 저장합니다. 스마트 컨트랙트를 배포한 주소가 아니면 운세들을 저장할 수 없습니다.
+save(fortunes) {
+    // ...
+}
+
+// 운세를 뽑아 유저의 히스토리에 저장합니다.
+crackCookie() {
+    // ...
+}
+
+// 유저의 히스토리를 반환합니다.
+getHistory(address) {
+    // ...
+}
+
+// address와 block의 height에 따라서 어떤 운세를 보여줄지 결정합니다.
+_hash(address) {
+    // ...
+}
+```
+
+> 기능이 단순해서 첫 번째 DApp을 만들 때에 비해서 시간은 월등히 짧게 소요되었습니다. 웹 프론트엔드는 라이브러리 없이 HTML/CSS/JS/Jquery를 사용하였습니다.
+
+완성된 DApp의 링크입니다: [Fortune Cookie](https://cookie.nasd.app/)
