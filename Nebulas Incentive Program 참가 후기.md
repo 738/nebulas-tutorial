@@ -113,6 +113,8 @@ _hash(address) {
 
 완성된 DApp의 링크입니다: [Fortune Cookie](https://cookie.nasd.app/)
 
+![fortunecookie](https://github.com/JonJee/nebulas-tutorial/blob/master/img/nip/fortunecookie.png?raw=true)
+
 ## 세 번째 DApp: Nebulas Address Book
 
 이 DApp은 송금을 편하게 하기 위해 개발한 DApp입니다. 자신이 자주 보내는 주소를 이름과 함께 등록하여 쉽게 송금할 수 있습니다. 소스코드는 [여기](https://github.com/JonJee/nas-addressbook)에서 볼 수 있습니다.
@@ -144,6 +146,8 @@ addOrRemoveFavorite(address) {
 ```
 
 완성된 DApp의 링크입니다: [Nebulas Address Book](https://nasd.app/)
+
+![nas-addressbook](https://github.com/JonJee/nebulas-tutorial/blob/master/img/nip/nas-addressbook.png?raw=true)
 
 ## 마치며
 
